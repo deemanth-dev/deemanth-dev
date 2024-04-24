@@ -1,0 +1,27 @@
+<template>
+    <lightning-tabset variant="scoped">
+        <lightning-tab label="Employee">
+            <div class="slds-var-p-around_medium">
+                <lightning-input type="search"
+                                 label="Search by Employee ID"
+                                 placeholder="Enter Employee ID"
+                                 onchange={handleSearch}>
+                </lightning-input>
+                <template if:true={employeeData}>
+                    <template for:each={employeeData} for:item="emp">
+                        <p key={emp.Id}>{emp.Name}, Employee ID: {emp.Employee_ID__c}</p>
+                    </template>
+                </template>
+                <template if:false={employeeData}>
+                    <p>No employee found with the provided ID.</p>
+                </template>
+            </div>
+        </lightning-tab>
+        <lightning-tab label="Employee Team">
+          Soma
+        </lightning-tab>
+        <lightning-tab label="Project Policies">
+            Thirumala
+        </lightning-tab>
+    </lightning-tabset>
+</template>
